@@ -1,0 +1,103 @@
+.Checkout {
+  background-color: var(--background-light);
+  min-height: 100vh;
+  height: max-content;
+  overflow-x: hidden;
+  width: 100vw;
+    
+    .Checkout__container{
+        margin: auto;
+        margin-top: 12rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        gap: 2rem;
+        height: max-content;
+        
+
+        h1{
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        overflow-x: hidden;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        background-color: white;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        overflow-x: hidden;
+        tr{
+            border-bottom: 1px solid #ddd;
+            height: 3rem;
+            &:hover{
+                background-color: var(--secondary-color);
+                color: white;
+            }
+        }
+        th{
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        td{
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        button{
+          background-color: transparent;
+          border: none;
+
+          svg{
+            color: #e40145;
+            
+            &:hover{
+              transition: 0.3s all ease-in-out;
+              color: crimson;
+            }
+          }
+        }
+    .Checkout__btn-delete{
+      background-color: transparent !important;
+    }
+      }
+
+          button{
+            align-self: flex-end;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            transition: all 0.3s ease-in-out;
+          }
+
+
+
+    label{
+      color: var(--primary-color) !important;
+    }
+        }
+}

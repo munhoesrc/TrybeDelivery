@@ -3,18 +3,18 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { Context } from '../Context/Context';
-
+import './Address.scss'
 function Address() {
-  const data = new Date();
-  console.log(data);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const { total } = useContext(Context);
-  const [address, setAddress] = useState('');
-  const [door, setDoor] = useState('');
   const [seller, setSeller] = useState(2);
   const [sellers, setSellers] = useState([]);
-
+  const currentUser= JSON.parse(localStorage.getItem('user'));
+  
+  const [door, setDoor] = useState(currentUser.door || '');
+  const [address, setAddress] = useState(currentUser.address || '');
+  console.log(currentUser.address, currentUser.door)
   const fetchSellers = async () => {
     const sellersData = await axios.get('http://localhost:3001/users/sellers');
     setSellers(sellersData.data);
@@ -77,8 +77,9 @@ function Address() {
       ) : (
         <div className="Address__container">
           <form action="sumbmit">
+            <div className='Address__left'>
             <label htmlFor="seller">
-              P. Vendedora Responsável:
+              Vendedor:
               <select
                 name="seller"
                 id="seller"
@@ -93,16 +94,8 @@ function Address() {
                 ))}
               </select>
             </label>
-            <label htmlFor="address">
-              Endereço
-              <input
-                data-testid="customer_checkout__input-address"
-                name="address"
-                type="text"
-                placeholder="Ex: Rua da noite"
-                onChange={ (e) => setAddress(e.target.value) }
-              />
-            </label>
+            </div>
+            <div className='Address__right'>
             <label htmlFor="door">
               Número
               <input
@@ -110,9 +103,22 @@ function Address() {
                 name="door"
                 type="text"
                 placeholder="Ex: 123"
+                value={ door}
                 onChange={ (e) => setDoor(e.target.value) }
               />
             </label>
+            <label htmlFor="address">
+              Endereço
+              <input
+                data-testid="customer_checkout__input-address"
+                name="address"
+                type="text"
+                value={ address}
+                placeholder="Ex: Rua da noite"
+                onChange={ (e) => setAddress(e.target.value) }
+              />
+            </label>
+            </div>
             <button
               type="button"
               className=""

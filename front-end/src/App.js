@@ -1,15 +1,20 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Login from './Pages/Login';
-import Products from './Pages/Products';
-import Register from './Pages/Register';
-import Orders from './Pages/Orders';
-import MyOrders from './Pages/MyOrders';
-import Checkout from './Pages/Checkout';
-import SellerOrders from './Pages/SellerOrders';
-import SellerDetails from './Pages/SellerDetails';
-import Admin from './Pages/Admin';
+import {
+  Login,
+  Register,
+  Products,
+  Orders,
+  MyOrders,
+  Checkout,
+  SellerOrders,
+  SellerDetails,
+  Profile,
+  Admin,
+  ProductsAdmin,
+  Dashboard,
+} from './Pages/index';
 
 function App() {
   return (
@@ -24,9 +29,10 @@ function App() {
       <Route exact path="/seller/orders/:id" element={ <SellerDetails /> } />
       <Route exact path="/seller/orders" element={ <SellerOrders /> } />
       <Route exact path="/admin/manage" element={ <Admin /> } />
-
+      <Route exact path="/profile" element={ <Profile /> } />
+      <Route exact path="/admin/products" element={ <ProductsAdmin /> } />
+      <Route exact path="/admin/dashboard" element={ <Dashboard /> } />
     </Routes>
-
   );
 }
 
